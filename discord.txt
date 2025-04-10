@@ -1,0 +1,1 @@
+https://styventhedev.github.io/.well-known/discord.txt
