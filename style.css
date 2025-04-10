@@ -9,7 +9,7 @@
 }
 
 body {
-  background-image: url('wp6439244.jpg'); /* Arrière-plan avec logo.jpg */
+  background-image: url('wp6439244.jpg'); /* Arrière-plan avec wp6439244.jpg */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -209,4 +209,4 @@ h4 {
   color: #fff;
   padding: 2em;
   text-align: center;
-  }
+    }
