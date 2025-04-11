@@ -187,13 +187,16 @@ section {
   height: auto;
 }
 
-.project-title span {
-  font-size: 1.3em;
-  font-weight: bold;
+.project-info h3 {
+  font-size: 1.5em;
+  font-weight: 600;
   color: #fff;
-  display: block;
+}
+
+.project-info p {
+  font-size: 1.2em;
+  color: #ccc;
   margin-top: 10px;
-  text-align: center;
 }
 
 h4 {
@@ -209,4 +212,4 @@ h4 {
   color: #fff;
   padding: 2em;
   text-align: center;
-    }
+}
