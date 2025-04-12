@@ -9,7 +9,7 @@
 }
 
 body {
-  background-image: url('wp6439244.jpg'); /* Arrière-plan avec wp6439244.jpg */
+  background-image: url('wp6439244.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -182,21 +182,9 @@ section {
   transform: scale(1.05);
 }
 
-.project-image img {
+.ptoject-image img {
   width: 100%;
   height: auto;
-}
-
-.project-info h3 {
-  font-size: 1.5em;
-  font-weight: 600;
-  color: #fff;
-}
-
-.project-info p {
-  font-size: 1.2em;
-  color: #ccc;
-  margin-top: 10px;
 }
 
 h4 {
@@ -213,6 +201,8 @@ h4 {
   padding: 2em;
   text-align: center;
 }
+
+/* Responsive */
 @media (max-width: 768px) {
   header {
     padding: 10px 20px;
@@ -249,7 +239,7 @@ h4 {
     font-size: 1.5em;
   }
 
-  .main-btn, .discord-btn {
+  .main-btn {
     font-size: 1.1em;
     padding: 0.7em 1.5em;
   }
