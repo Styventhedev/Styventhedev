@@ -13,7 +13,7 @@
     <nav class="navigation">
       <a href="#services">Services</a>
       <a href="#projects">Projets</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact-page">Contact</a>
     </nav>
   </header>
 
@@ -26,27 +26,26 @@
       <div class="social-icon">
         <a href="https://www.bandlab.com/styven_music"><i class="fa-brands fa-bandcamp"></i></a>
         <a href="https://www.instagram.com/styventhedev"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://discord.gg/46E9uuxQ"><i class="fa-brands fa-discord"></i></a>
+        <a href="https://github.com/styventhedev"><i class="fa-brands fa-github"></i></a>
       </div>
     </div>
   </section>
 
-  <section class="cards" id="services">
-    <h2 class="title">Services</h2>
+  <section class="cards" id="role">
+    <h2 class="title">Role</h2>
     <div class="content">
       <div class="card">
-        <div class="icon"><i class="fa-solid fa-pen-to-square"></i></div>
+        <div class="icon"><i class="fa-solid fa-music"></i></div>
         <div class="info">
-          <h3>Beatmaker</h3>
-          <p>Actif sur Discord, je crée des beats stylés !</p>
+          <h3>Producteur de musique</h3>
+          <p>Je compose et produis des musiques originales sur Bandlab et d'autres plateformes.</p>
         </div>
       </div>
-
       <div class="card">
-        <div class="icon"><i class="fa-solid fa-code"></i></div>
+        <div class="icon"><i class="fa-solid fa-cart-shopping"></i></div>
         <div class="info">
-          <h3>Développeur</h3>
-          <p>Je développe des sites et projets interactifs !</p>
+          <h3>Vendeur digital</h3>
+          <p>Je propose des produits digitaux à petit prix : packs, outils, ressources et plus encore.</p>
         </div>
       </div>
     </div>
@@ -54,42 +53,43 @@
 
   <section class="projects" id="projects">
     <h2 class="title">Projets</h2>
-    <div class="content">
+    <div class="content" style="display: flex; justify-content: center; gap: 30px;">
       <div class="project-card">
-        <div class="project-image">
-          <img src="discord.png" alt="serveur Discord">
-        </div>
-        <div class="project-info">
-          <h3>Serveur Discord</h3>
-          <p>Un serveur communautaire avec bots & rôles.</p>
-        </div>
+        <h3>AllInfo</h3>
+        <p>Un site pour voir les infos de ton appareil.</p>
       </div>
-
       <div class="project-card">
-        <div class="ptoject-image">
-          <img src="discord.png" alt="bot Discord">
-        </div>
-        <div class="project-info">
-          <h3>Bot Discord</h3>
-          <p>Un bot customisé pour la modération et le fun.</p>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="ptoject-image">
-          <img src="button.jpg" alt="Animation bouton">
-        </div>
-        <div class="project-info">
-          <h3>Animation de bouton</h3>
-          <p>Effets stylés sur des boutons interactifs.</p>
-        </div>
+        <h3>Boutique</h3>
+        <p>Vente de produits digitaux à petit prix.</p>
       </div>
     </div>
   </section>
-
-  <footer class="footer" id="contact">
-    <p class="footer-title">Copyright © <span>styventhedev</span></p>
-    <p>Merci de ta visite !</p>
+  
+  <section class="contact" id="contact-page" style="padding: 40px 0; background: #f9f9f9;">
+    <h2 class="title">Contact</h2>
+    <form class="contact-form" action="https://formspree.io/f/xqadejvy" method="POST" style="max-width: 400px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.07);">
+      <input type="text" name="name" placeholder="Votre nom" required />
+      <input type="email" name="email" placeholder="Votre email" required />
+      <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+      <button type="submit" style="background: #222; color: #fff; padding: 10px; border: none; cursor: pointer;">Envoyer</button>
+    </form>
+  </section>
+ 
+  <footer class="footer">
+    <p class="footer-title">Copyright ©<span>styventhedev</span></p>
+    <p>Merci de ta visite!</p>
+    <!-- compteur de visiteurs -->
+    <div id="visitor-count" style="margin-top:10px;font-size:1em;color:#4f8cff;">
+      Visiteurs : <span id="count">...</span>
+    </div>
   </footer>
+  <script>
+    fetch('https://api.countapi.xyz/hit/styventhedev-main/visits')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('count').textContent = data.value;
+      });
+  </script>
 </body>
 </html>
+          
