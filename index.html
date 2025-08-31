@@ -4,30 +4,291 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Styven The Dev</title>
-  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(120deg,#4f8cff 0%,#a3c9ff 100%), url('wp6439244.jpg') center/cover no-repeat fixed;
+      margin: 0;
+      min-height: 100vh;
+    }
+    header {
+      background: rgba(36, 56, 99, 0.85);
+      padding: 0 0 0 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 0 0 24px 24px;
+    }
+    .logo {
+      font-size: 2em;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 18px 32px;
+      letter-spacing: 2px;
+    }
+    .navigation {
+      padding-right: 32px;
+    }
+    .navigation a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1em;
+      margin: 0 18px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .navigation a:hover {
+      color: #ffd700;
+    }
+    section {
+      max-width: 900px;
+      margin: 48px auto;
+      padding: 36px 24px;
+      background: rgba(255,255,255,0.82);
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    }
+    .main {
+      background: rgba(36,56,99,0.25);
+      color: #fff;
+      text-align: center;
+      margin-bottom: 0;
+      box-shadow: none;
+    }
+    .main img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+      object-fit: cover;
+      background: #fff;
+      border: 4px solid #4f8cff;
+    }
+    .main h2 {
+      font-size: 2.7em;
+      margin-bottom: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .main span {
+      color: #ffd700;
+    }
+    .main-btn {
+      background: #2563eb;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 24px 0;
+      display: inline-block;
+      transition: background 0.2s;
+      border: none;
+      font-size: 1.1em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+    .main-btn:hover {
+      background: #ffd700;
+      color: #222;
+    }
+    .social-icon {
+      margin-top: 18px;
+    }
+    .social-icon a {
+      color: #fff;
+      margin: 0 12px;
+      font-size: 1.7em;
+      transition: color 0.2s;
+    }
+    .social-icon a:hover {
+      color: #ffd700;
+    }
+    .title {
+      text-align: center;
+      font-size: 2.2em;
+      margin-bottom: 32px;
+      color: #2563eb;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    .cards .content, .projects .content {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+    .card, .project-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 18px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+      padding: 32px;
+      width: 320px;
+      text-align: center;
+      margin-bottom: 24px;
+      transition: transform 0.2s;
+    }
+    .card:hover, .project-card:hover {
+      transform: translateY(-6px) scale(1.04);
+    }
+    .card .icon, .project-card .icon {
+      font-size: 2.7em;
+      color: #2563eb;
+      margin-bottom: 14px;
+    }
+    .project-card a {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 20px;
+      background: #2563eb;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+      font-weight: bold;
+      border: none;
+      font-size: 1em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .project-card a:hover {
+      background: #ffd700;
+      color: #222;
+    }
+    .news-list {
+      max-width: 700px;
+      margin: 0 auto;
+      padding-bottom: 24px;
+    }
+    .news-item {
+      background: rgba(255,255,255,0.97);
+      padding: 28px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      border-radius: 18px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    }
+    .news-media {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 12px;
+      background: #eaf1ff;
+      margin-right: 18px;
+      display: block;
+    }
+    .news-content h3 {
+      margin: 0 0 10px 0;
+      color: #2563eb;
+      font-size: 1.2em;
+      font-weight: 700;
+    }
+    .news-content p {
+      margin: 0 0 10px 0;
+      font-size: 1em;
+    }
+    .news-content .date {
+      font-size: 0.95em;
+      color: #888;
+    }
+    .add-news-form {
+      background: rgba(255,255,255,0.97);
+      padding: 20px;
+      margin-bottom: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-radius: 18px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    }
+    .add-news-form input, .add-news-form textarea {
+      flex: 1 1 220px;
+      padding: 10px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      border: 1px solid #d0d7e2;
+      font-size: 1em;
+    }
+    .add-news-form button {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 12px;
+      flex: 1 1 120px;
+      font-size: 1em;
+    }
+    .add-news-form button:hover {
+      background: #ffd700;
+      color: #222;
+    }
+    .contact-form {
+      max-width: 420px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      padding: 34px;
+      background: rgba(255,255,255,0.97);
+      border-radius: 18px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    }
+    .footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 34px 0 12px 0;
+      margin-top: 48px;
+      border-radius: 24px 24px 0 0;
+    }
+    .footer-title {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    #visitor-count {
+      margin-top:12px;
+      font-size:1em;
+      color:#2563eb;
+    }
+    @media (max-width: 900px) {
+      section {
+        max-width: 98vw;
+        padding: 12px 2vw;
+      }
+      .cards .content, .projects .content { flex-direction: column; align-items: center; }
+      .news-item { flex-direction: column; align-items: flex-start; }
+      .project-card, .card { width: 98vw; }
+    }
+  </style>
 </head>
 <body>
   <header>
     <a class="logo" href="#">styventhedev</a>
     <nav class="navigation">
-      <a href="#services">Services</a>
+      <a href="#role">Services</a>
       <a href="#projects">Projets</a>
+      <a href="#news">Actualités</a>
       <a href="#contact-page">Contact</a>
     </nav>
   </header>
 
   <section class="main">
-    <div>
-      <h2>Salut, je suis Styven<br><span>Développeur</span></h2>
-      <h3>Je crée avec passion ! ⚡</h3>
-      <a href="#projects" class="main-btn">Mes créations</a>
-      <h4>Mes réseaux sociaux 个</h4>
-      <div class="social-icon">
-        <a href="https://www.bandlab.com/styven_music"><i class="fa-brands fa-bandcamp"></i></a>
-        <a href="https://www.instagram.com/styventhedev"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://github.com/styventhedev"><i class="fa-brands fa-github"></i></a>
-      </div>
+    <img src="styven.png" alt="Styven" />
+    <h2>Salut, je suis Styven<br><span>Développeur</span></h2>
+    <h3>Je crée avec passion ! ⚡</h3>
+    <a href="#projects" class="main-btn">Mes créations</a>
+    <h4 style="margin-top:30px;">Mes réseaux sociaux 个</h4>
+    <div class="social-icon">
+      <a href="https://www.bandlab.com/styven_music"><i class="fa-brands fa-bandcamp"></i></a>
+      <a href="https://www.instagram.com/styventhedev"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://github.com/styventhedev"><i class="fa-brands fa-github"></i></a>
     </div>
   </section>
 
@@ -36,60 +297,187 @@
     <div class="content">
       <div class="card">
         <div class="icon"><i class="fa-solid fa-music"></i></div>
-        <div class="info">
-          <h3>Producteur de musique</h3>
-          <p>Je compose et produis des musiques originales sur Bandlab et d'autres plateformes.</p>
-        </div>
+        <h3>Producteur de musique</h3>
+        <p>Je compose et produis des musiques originales sur Bandlab et d'autres plateformes.</p>
       </div>
       <div class="card">
         <div class="icon"><i class="fa-solid fa-cart-shopping"></i></div>
-        <div class="info">
-          <h3>Vendeur digital</h3>
-          <p>Je propose des produits digitaux à petit prix : packs, outils, ressources et plus encore.</p>
-        </div>
+        <h3>Vendeur digital</h3>
+        <p>Je propose des produits digitaux à petit prix : packs, outils, ressources et plus encore.</p>
       </div>
     </div>
   </section>
 
   <section class="projects" id="projects">
     <h2 class="title">Projets</h2>
-    <div class="content" style="display: flex; justify-content: center; gap: 30px;">
+    <div class="content">
       <div class="project-card">
+        <div class="icon"><i class="fa-brands fa-github"></i></div>
         <h3>AllInfo</h3>
         <p>Un site pour voir les infos de ton appareil.</p>
+        <a href="https://styventhedev.github.io/Allinfo/" target="_blank">
+          Voir le projet <i class="fa-brands fa-github"></i>
+        </a>
       </div>
       <div class="project-card">
+        <div class="icon"><i class="fa-solid fa-cart-shopping"></i></div>
         <h3>Boutique</h3>
         <p>Vente de produits digitaux à petit prix.</p>
+        <a href="https://ko-fi.com/styvenshop" target="_blank">
+          Voir la boutique <i class="fa-solid fa-cart-shopping"></i>
+        </a>
       </div>
     </div>
   </section>
-  
-  <section class="contact" id="contact-page" style="padding: 40px 0; background: #f9f9f9;">
+
+  <section class="news" id="news">
+    <h2 class="title">Actualités</h2>
+    <form class="add-news-form" id="addNewsForm" enctype="multipart/form-data">
+      <input type="text" id="newsTitle" placeholder="Titre de l'actualité" required />
+      <textarea id="newsText" rows="2" placeholder="Description" required></textarea>
+      <input type="text" id="newsDate" placeholder="Date (ex: Août 2025)" required />
+      <input type="file" id="newsMedia" accept="image/*,video/*" />
+      <button type="submit">Ajouter l'actualité</button>
+    </form>
+    <div class="news-list" id="newsList"></div>
+  </section>
+
+  <section class="contact" id="contact-page">
     <h2 class="title">Contact</h2>
-    <form class="contact-form" action="https://formspree.io/f/xqadejvy" method="POST" style="max-width: 400px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.07);">
-      <input type="text" name="name" placeholder="Votre nom" required />
-      <input type="email" name="email" placeholder="Votre email" required />
-      <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
-      <button type="submit" style="background: #222; color: #fff; padding: 10px; border: none; cursor: pointer;">Envoyer</button>
+    <form class="contact-form" action="https://formspree.io/f/xqadejvy" method="POST" id="contactForm">
+      <div style="position:relative;">
+        <input type="text" name="name" placeholder="Votre nom" required style="padding-left:32px;" />
+        <span style="position:absolute;left:8px;top:50%;transform:translateY(-50%);color:#4f8cff;">
+          <i class="fa-solid fa-user"></i>
+        </span>
+      </div>
+      <div style="position:relative;">
+        <input type="email" name="email" placeholder="Votre email" required style="padding-left:32px;" />
+        <span style="position:absolute;left:8px;top:50%;transform:translateY(-50%);color:#4f8cff;">
+          <i class="fa-solid fa-envelope"></i>
+        </span>
+      </div>
+      <div style="position:relative;">
+        <textarea name="message" rows="5" placeholder="Votre message" required style="padding-left:32px;"></textarea>
+        <span style="position:absolute;left:8px;top:12px;color:#4f8cff;">
+          <i class="fa-solid fa-comment"></i>
+        </span>
+      </div>
+      <button type="submit" style="background: #2563eb; color: #fff; padding: 12px; border: none; cursor: pointer; border-radius:8px;">Envoyer</button>
+      <div id="formMessage" style="display:none;color:#2563eb;text-align:center;margin-top:10px;"></div>
     </form>
   </section>
  
   <footer class="footer">
     <p class="footer-title">Copyright ©<span>styventhedev</span></p>
     <p>Merci de ta visite!</p>
-    <!-- compteur de visiteurs -->
-    <div id="visitor-count" style="margin-top:10px;font-size:1em;color:#4f8cff;">
+    <div id="visitor-count">
       Visiteurs : <span id="count">...</span>
+    </div>
+    <div style="margin-top:10px;">
+      <a href="https://www.instagram.com/styventhedev" target="_blank" style="color:#fff;margin:0 8px;"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://github.com/styventhedev" target="_blank" style="color:#fff;margin:0 8px;"><i class="fa-brands fa-github"></i></a>
+      <a href="https://ko-fi.com/styvenshop" target="_blank" style="color:#fff;margin:0 8px;"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
   </footer>
   <script>
+    // Compteur de visiteurs
     fetch('https://api.countapi.xyz/hit/styventhedev-main/visits')
       .then(res => res.json())
       .then(data => {
         document.getElementById('count').textContent = data.value;
       });
+
+    // Formulaire de contact
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          document.getElementById('formMessage').textContent = "Merci pour votre message ! Je vous répondrai bientôt.";
+          document.getElementById('formMessage').style.display = "block";
+          this.reset();
+        } else {
+          document.getElementById('formMessage').textContent = "Une erreur est survenue. Réessayez.";
+          document.getElementById('formMessage').style.display = "block";
+        }
+      });
+    });
+
+    // Actualités dynamiques avec média
+    const defaultNews = [
+      {
+        title: "Nouveau projet : AllInfo",
+        text: "J’ai lancé <a href='https://styventhedev.github.io/Allinfo/' target='_blank' style='color:#2563eb;text-decoration:underline;'>AllInfo</a>, un site pour afficher les infos de ton appareil. Teste-le et donne ton avis !",
+        media: "",
+        date: "Août 2025"
+      },
+      {
+        title: "La boutique est ouverte !",
+        text: "Retrouve mes produits digitaux sur <a href='https://ko-fi.com/styvenshop' target='_blank' style='color:#2563eb;text-decoration:underline;'>ma boutique Ko-fi</a> : packs, outils et ressources à petit prix.",
+        media: "",
+        date: "Juillet 2025"
+      }
+    ];
+
+    function renderNews(newsArray) {
+      const newsList = document.getElementById('newsList');
+      newsList.innerHTML = '';
+      newsArray.forEach(news => {
+        let mediaHtml = '';
+        if (news.media) {
+          if (news.media.startsWith('data:image')) {
+            mediaHtml = `<img class="news-media" src="${news.media}" alt="media" />`;
+          } else if (news.media.startsWith('data:video')) {
+            mediaHtml = `<video class="news-media" src="${news.media}" controls></video>`;
+          } else if (news.media.startsWith('http')) {
+            mediaHtml = `<img class="news-media" src="${news.media}" alt="media" />`;
+          }
+        }
+        newsList.innerHTML += `
+          <div class="news-item">
+            ${mediaHtml}
+            <div class="news-content">
+              <h3>${news.title}</h3>
+              <p>${news.text}</p>
+              <span class="date">${news.date}</span>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    let newsArray = [...defaultNews];
+
+    renderNews(newsArray);
+
+    document.getElementById('addNewsForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const title = document.getElementById('newsTitle').value;
+      const text = document.getElementById('newsText').value;
+      const date = document.getElementById('newsDate').value;
+      const mediaInput = document.getElementById('newsMedia');
+      let media = "";
+      if (mediaInput.files && mediaInput.files[0]) {
+        const file = mediaInput.files[0];
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          media = evt.target.result;
+          newsArray.unshift({ title, text, media, date });
+          renderNews(newsArray);
+        };
+        reader.readAsDataURL(file);
+        document.getElementById('addNewsForm').reset();
+      } else {
+        newsArray.unshift({ title, text, media, date });
+        renderNews(newsArray);
+        document.getElementById('addNewsForm').reset();
+      }
+    });
   </script>
 </body>
 </html>
-          
