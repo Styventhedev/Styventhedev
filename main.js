@@ -1,19 +1,12 @@
 
-/* ==========================================
-   STYVENTHEDEV — MAIN.JS
-   Animations, filtres et fenêtres de projets
-   ========================================== */
-
 document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
   // Année automatique
   const year = document.getElementById("year");
-  if (year) {
-    year.textContent = new Date().getFullYear();
-  }
+  if (year) year.textContent = new Date().getFullYear();
 
-  // Animation du texte d'accueil
+  // Texte animé
   const typed = document.getElementById("typed");
   const words = ["apps", "jeux", "outils", "launchers"];
 
@@ -28,21 +21,27 @@ document.addEventListener("DOMContentLoaded", () => {
     function typeEffect() {
       const word = words[wordIndex];
 
-      charIndex += deleting ? -1 : 1;
-      typed.textContent = word.slice(0, charIndex);
+      typed.textContent = word.substring(0, charIndex);
 
-      let delay = deleting ? 50 : 110;
+      if (!deleting) {
+        charIndex++;
 
-      if (!deleting && charIndex === word.length) {
-        deleting = true;
-        delay = 1400;
-      } else if (deleting && charIndex === 0) {
-        deleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        delay = 300;
+        if (charIndex > word.length) {
+          deleting = true;
+          setTimeout(typeEffect, 1000);
+          return;
+        }
+      } else {
+        charIndex--;
+
+        if (charIndex < 0) {
+          charIndex = 0;
+          deleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+        }
       }
 
-      window.setTimeout(typeEffect, delay);
+      setTimeout(typeEffect, deleting ? 50 : 100);
     }
 
     typeEffect();
@@ -52,94 +51,106 @@ document.addEventListener("DOMContentLoaded", () => {
   const topButton = document.querySelector(".top");
 
   if (topButton) {
-    const updateTopButton = () => {
-      topButton.classList.toggle("show", window.scrollY > 500);
-    };
-
-    window.addEventListener("scroll", updateTopButton, {
-      passive: true
+    window.addEventListener("scroll", () => {
+      topButton.classList.toggle("show", window.scrollY > 300);
     });
 
     topButton.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
-
-    updateTopButton();
   }
 
-  // Données des projets
+  // Catégories des projets
+  // Ce classement fonctionne sans modifier index.html.
+  const projectCategories = {
+    "AllInfo": ["web", "outil"],
+    "PlombierTool": ["mobile", "outil"],
+    "StyvenShop": ["web"],
+    "STYVEN Glass": ["mobile"],
+    "Cyber Toolkit": ["mobile", "outil"],
+    "RAVYX": ["discord"]
+  };
+
+  const filters = document.getElementById("filters");
+  const cards = document.querySelectorAll(".grid .card");
+
+  if (filters) {
+    const buttons = filters.querySelectorAll("button");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        const filter = (button.dataset.f || "all").toLowerCase();
+
+        buttons.forEach(item => {
+          item.classList.toggle("on", item === button);
+        });
+
+        cards.forEach(card => {
+          const title = card.querySelector("h3")?.textContent.trim();
+          const categories = projectCategories[title] || [];
+          const show =
+            filter === "all" || categories.includes(filter);
+
+          card.hidden = !show;
+          card.style.display = show ? "" : "none";
+        });
+      });
+    });
+  }
+
+  // Fenêtre de détails des projets
+  const modal = document.getElementById("modal");
+  const modalBody = document.getElementById("mbody");
+
   const projects = {
     "AllInfo": {
-      title: "AllInfo",
-      category: "Outil web",
-      description:
-        "Un projet web de Styventhedev consacré aux informations et aux outils numériques.",
+      category: "Web • Outils",
+      description: "Un site qui centralise des informations et des ressources.",
       status: "Disponible",
       link: "https://styventhedev.github.io/Allinfo/"
     },
-
     "PlombierTool": {
-      title: "PlombierTool",
-      category: "Application",
-      description:
-        "Une application pensée pour les apprentis et les professionnels de la plomberie et du chauffage. Objectif : centraliser les outils utiles, gratuitement et hors ligne.",
-      status: "En développement",
+      category: "Mobile • Outils",
+      description: "Une application pensée pour les apprentis et les professionnels de la plomberie, avec un objectif de simplicité et de fonctionnement hors ligne.",
+      status: "Projet en développement",
       link: ""
     },
-
     "StyvenShop": {
-      title: "StyvenShop",
-      category: "Boutique",
-      description:
-        "L'espace Ko-fi associé aux projets Styventhedev.",
-      status: "En ligne",
-      link: "https://ko-fi.com/styvenshop"
-    },
-
-    "STYVEN Glass": {
-      title: "STYVEN Glass",
-      category: "Interface",
-      description:
-        "Un concept d'interface au style transparent et futuriste.",
-      status: "Projet",
-      link: ""
-    },
-
-    "Cyber Toolkit": {
-      title: "Cyber Toolkit",
-      category: "Outils",
-      description:
-        "Un concept de boîte à outils numérique au style cyberpunk.",
+      category: "Web",
+      description: "Un projet de boutique en ligne Styventhedev.",
       status: "En développement",
       link: ""
     },
-
+    "STYVEN Glass": {
+      category: "Mobile • Launcher",
+      description: "Un projet de launcher Android.",
+      status: "En développement",
+      link: ""
+    },
+    "Cyber Toolkit": {
+      category: "Mobile • Outils",
+      description: "Un projet d'outils numériques avec une interface inspirée du style cyberpunk.",
+      status: "En développement",
+      link: ""
+    },
     "RAVYX": {
-      title: "RAVYX",
-      category: "Bot Discord",
-      description:
-        "Un bot Discord multifonction conçu autour du projet RAVYX.",
+      category: "Discord",
+      description: "Un bot Discord multifonction développé avec Bot Designer For Discord.",
       status: "En développement",
       link: ""
     }
   };
 
-  // Fenêtres détaillées des projets
-  const modal = document.getElementById("modal");
-  const modalBody = document.getElementById("mbody");
-
   function openModal(projectName) {
-    const project = projects[projectName];
+    if (!modal || !modalBody) return;
 
-    if (!project || !modal || !modalBody) return;
+    const project = projects[projectName];
+    if (!project) return;
 
     modalBody.replaceChildren();
 
     const title = document.createElement("h2");
-    title.textContent = project.title;
+    title.textContent = projectName;
 
     const category = document.createElement("p");
     category.textContent = project.category;
@@ -155,122 +166,82 @@ document.addEventListener("DOMContentLoaded", () => {
     if (project.link) {
       const link = document.createElement("a");
       link.href = project.link;
+      link.textContent = "Visiter le projet";
       link.target = "_blank";
       link.rel = "noopener noreferrer";
-      link.textContent = "Découvrir le projet ↗";
-      link.className = "project-link";
       modalBody.appendChild(link);
     }
 
+    modal.hidden = false;
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("modal-open");
   }
 
   function closeModal() {
     if (!modal) return;
 
     modal.classList.remove("open");
+    modal.hidden = true;
     modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
   }
 
-  // Clic sur les cartes de projets
-  document.querySelectorAll(".card").forEach((card) => {
-    card.addEventListener("click", () => {
-      const name =
-        card.dataset.project ||
-        card.dataset.name ||
-        card.querySelector("h3")?.textContent?.trim();
+  // Ouverture des détails au clic sur une carte
+  cards.forEach(card => {
+    const title = card.querySelector("h3")?.textContent.trim();
 
-      if (name) openModal(name);
-    });
+    if (!title) return;
 
     card.setAttribute("tabindex", "0");
     card.setAttribute("role", "button");
 
-    card.addEventListener("keydown", (event) => {
+    card.addEventListener("click", event => {
+      if (event.target.closest("a, button")) return;
+      openModal(title);
+    });
+
+    card.addEventListener("keydown", event => {
+      if (event.target !== card) return;
+
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        card.click();
+        openModal(title);
       }
     });
   });
 
   // Fermeture de la fenêtre
   if (modal) {
-    modal.querySelectorAll("[data-close], .close, .modal-close")
-      .forEach((button) => {
+    modal.querySelectorAll("[data-close], .close, .modal-close, .mx")
+      .forEach(button => {
         button.addEventListener("click", closeModal);
       });
 
-    modal.addEventListener("click", (event) => {
+    modal.addEventListener("click", event => {
       if (event.target === modal) closeModal();
     });
   }
 
-  document.addEventListener("keydown", (event) => {
+  document.addEventListener("keydown", event => {
     if (event.key === "Escape") closeModal();
   });
 
-  
-  // Filtres de projets — correction adaptée au HTML
-  const filters = document.getElementById("filters");
-  const cards = document.querySelectorAll(".grid .card");
+  // Animation d'apparition des cartes
+  const revealElements = document.querySelectorAll(".reveal");
 
-  if (filters) {
-    const buttons = filters.querySelectorAll("button");
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const filter = (button.dataset.f || "all").toLowerCase();
-
-        // Bouton actif
-        buttons.forEach((item) => {
-          item.classList.toggle("on", item === button);
-        });
-
-        // Afficher les projets correspondant aux catégories
-        cards.forEach((card) => {
-          const categories = (card.dataset.c || "")
-            .toLowerCase()
-            .split(/\s+/)
-            .filter(Boolean);
-
-          const show =
-            filter === "all" || categories.includes(filter);
-
-          card.style.display = show ? "" : "none";
-        });
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible", "in");
+          observer.unobserve(entry.target);
+        }
       });
     });
-  }
 
-
-
-  // Apparition progressive des éléments
-  if (
-    "IntersectionObserver" in window &&
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  ) {
-    const observer = new IntersectionObserver(
-      (entries, currentObserver) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            currentObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-
-    document
-      .querySelectorAll(".reveal")
-      .forEach((element) => observer.observe(element));
+    revealElements.forEach(element => observer.observe(element));
   } else {
-    document
-      .querySelectorAll(".reveal")
-      .forEach((element) => element.classList.add("visible"));
+    revealElements.forEach(element => {
+      element.classList.add("visible", "in");
+    });
   }
 });
