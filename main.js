@@ -213,42 +213,39 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.key === "Escape") closeModal();
   });
 
-
-  // Filtres de projets
+  
+  // Filtres de projets — correction adaptée au HTML
   const filters = document.getElementById("filters");
-  const cards = document.querySelectorAll(".card");
+  const cards = document.querySelectorAll(".grid .card");
 
   if (filters) {
-    filters.addEventListener("click", (event) => {
-      const button = event.target.closest("button");
-      if (!button || !filters.contains(button)) return;
+    const buttons = filters.querySelectorAll("button");
 
-      const filter = (
-        button.dataset.filter ||
-        button.textContent.trim()
-      ).toLowerCase();
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = (button.dataset.f || "all").toLowerCase();
 
-      filters.querySelectorAll("button").forEach((item) => {
-        item.classList.toggle("active", item === button);
-      });
+        // Bouton actif
+        buttons.forEach((item) => {
+          item.classList.toggle("on", item === button);
+        });
 
-      cards.forEach((card) => {
-        const category = (
-          card.dataset.category ||
-          card.dataset.filter ||
-          card.textContent
-        ).toLowerCase();
+        // Afficher les projets correspondant aux catégories
+        cards.forEach((card) => {
+          const categories = (card.dataset.c || "")
+            .toLowerCase()
+            .split(/\s+/)
+            .filter(Boolean);
 
-        const show =
-          filter === "tous" ||
-          filter === "tout" ||
-          filter === "all" ||
-          category.includes(filter);
+          const show =
+            filter === "all" || categories.includes(filter);
 
-        card.hidden = !show;
+          card.style.display = show ? "" : "none";
+        });
       });
     });
   }
+
 
 
   // Apparition progressive des éléments
