@@ -64,10 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Ce classement fonctionne sans modifier index.html.
   const projectCategories = {
     "AllInfo": ["web", "outil"],
-    "PlombierTool": ["mobile", "outil"],
+    "PlombierTool": ["mobile"],
     "StyvenShop": ["web"],
     "STYVEN Glass": ["mobile"],
-    "Cyber Toolkit": ["mobile", "outil"],
+    "Cyber Toolkit": ["outil"],
     "RAVYX": ["discord"]
   };
 
