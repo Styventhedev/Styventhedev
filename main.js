@@ -2,11 +2,20 @@
 document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
-  // Année automatique
-  const year = document.getElementById("year");
-  if (year) year.textContent = new Date().getFullYear();
+  // ==========================================
+  // 1. ANNÉE AUTOMATIQUE
+  // ==========================================
 
-  // Texte animé
+  const year = document.getElementById("year");
+
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
+
+  // ==========================================
+  // 2. TEXTE ANIMÉ
+  // ==========================================
+
   const typed = document.getElementById("typed");
   const words = ["apps", "jeux", "outils", "launchers"];
 
@@ -47,7 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
     typeEffect();
   }
 
-  // Bouton retour en haut
+  // ==========================================
+  // 3. BOUTON RETOUR EN HAUT
+  // ==========================================
+
   const topButton = document.querySelector(".top");
 
   if (topButton) {
@@ -56,12 +68,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     topButton.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     });
   }
 
-  // Catégories des projets
-  // Ce classement fonctionne sans modifier index.html.
+  // ==========================================
+  // 4. CATÉGORIES DES PROJETS
+  // ==========================================
+
   const projectCategories = {
     "AllInfo": ["web", "outil"],
     "PlombierTool": ["mobile"],
@@ -71,80 +88,115 @@ document.addEventListener("DOMContentLoaded", () => {
     "RAVYX": ["discord"]
   };
 
+  // ==========================================
+  // 5. FILTRES DES PROJETS
+  // ==========================================
+
   const filters = document.getElementById("filters");
   const cards = document.querySelectorAll(".grid .card");
 
   if (filters) {
     const buttons = filters.querySelectorAll("button");
 
+    function applyFilter(filter) {
+      buttons.forEach(button => {
+        button.classList.toggle(
+          "on",
+          (button.dataset.f || "all").toLowerCase() === filter
+        );
+      });
+
+      cards.forEach(card => {
+        const title = card.querySelector("h3")
+          ?.textContent.trim();
+
+        const categories = projectCategories[title] || [];
+
+        const show =
+          filter === "all" || categories.includes(filter);
+
+        card.hidden = !show;
+        card.style.display = show ? "" : "none";
+      });
+    }
+
     buttons.forEach(button => {
       button.addEventListener("click", () => {
         const filter = (button.dataset.f || "all").toLowerCase();
-
-        buttons.forEach(item => {
-          item.classList.toggle("on", item === button);
-        });
-
-        cards.forEach(card => {
-          const title = card.querySelector("h3")?.textContent.trim();
-          const categories = projectCategories[title] || [];
-          const show =
-            filter === "all" || categories.includes(filter);
-
-          card.hidden = !show;
-          card.style.display = show ? "" : "none";
-        });
+        applyFilter(filter);
       });
     });
+
+    // Afficher tous les projets au chargement
+    applyFilter("all");
   }
 
-  // Fenêtre de détails des projets
-  const modal = document.getElementById("modal");
-  const modalBody = document.getElementById("mbody");
+  // ==========================================
+  // 6. INFORMATIONS DES PROJETS
+  // ==========================================
 
   const projects = {
     "AllInfo": {
       category: "Web • Outils",
-      description: "Un site qui centralise des informations et des ressources.",
+      description:
+        "Un site qui centralise des informations et des ressources.",
       status: "Disponible",
       link: "https://styventhedev.github.io/Allinfo/"
     },
+
     "PlombierTool": {
-      category: "Mobile • Outils",
-      description: "Une application pensée pour les apprentis et les professionnels de la plomberie, avec un objectif de simplicité et de fonctionnement hors ligne.",
+      category: "Mobile",
+      description:
+        "Une application Android destinée aux apprentis et aux professionnels de la plomberie, avec un objectif de simplicité et de fonctionnement hors ligne.",
       status: "Projet en développement",
       link: ""
     },
+
     "StyvenShop": {
       category: "Web",
-      description: "Un projet de boutique en ligne Styventhedev.",
+      description:
+        "Un projet de boutique en ligne de l'univers Styventhedev.",
       status: "En développement",
       link: ""
     },
+
     "STYVEN Glass": {
       category: "Mobile • Launcher",
-      description: "Un projet de launcher Android.",
+      description:
+        "Un projet de launcher Android avec une interface personnalisée.",
       status: "En développement",
       link: ""
     },
+
     "Cyber Toolkit": {
-      category: "Mobile • Outils",
-      description: "Un projet d'outils numériques avec une interface inspirée du style cyberpunk.",
+      category: "Outils",
+      description:
+        "Un projet d'outils numériques avec une interface inspirée de l'univers cyberpunk.",
       status: "En développement",
       link: ""
     },
+
     "RAVYX": {
       category: "Discord",
-      description: "Un bot Discord multifonction développé avec Bot Designer For Discord.",
+      description:
+        "Un bot Discord multifonction développé avec Bot Designer For Discord.",
       status: "En développement",
       link: ""
     }
   };
 
+  // ==========================================
+  // 7. FENÊTRE DE DÉTAILS
+  // ==========================================
+
+  const modal = document.getElementById("modal");
+  const modalBody = document.getElementById("mbody");
+
   function openModal(projectName) {
     if (!modal || !modalBody) return;
 
     const project = projects[projectName];
+
     if (!project) return;
 
     modalBody.replaceChildren();
@@ -153,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
     title.textContent = projectName;
 
     const category = document.createElement("p");
-    category.textContent = project.category;
+    category.textContent = "Catégorie : " + project.category;
 
     const description = document.createElement("p");
     description.textContent = project.description;
@@ -161,14 +213,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const status = document.createElement("p");
     status.textContent = "Statut : " + project.status;
 
-    modalBody.append(title, category, description, status);
+    modalBody.append(
+      title,
+      category,
+      description,
+      status
+    );
 
     if (project.link) {
       const link = document.createElement("a");
+
       link.href = project.link;
       link.textContent = "Visiter le projet";
       link.target = "_blank";
       link.rel = "noopener noreferrer";
+
       modalBody.appendChild(link);
     }
 
@@ -185,9 +244,13 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.setAttribute("aria-hidden", "true");
   }
 
-  // Ouverture des détails au clic sur une carte
+  // ==========================================
+  // 8. CLIC SUR LES CARTES
+  // ==========================================
+
   cards.forEach(card => {
-    const title = card.querySelector("h3")?.textContent.trim();
+    const title = card.querySelector("h3")
+      ?.textContent.trim();
 
     if (!title) return;
 
@@ -195,7 +258,9 @@ document.addEventListener("DOMContentLoaded", () => {
     card.setAttribute("role", "button");
 
     card.addEventListener("click", event => {
+      // Ne pas bloquer les liens présents dans les cartes
       if (event.target.closest("a, button")) return;
+
       openModal(title);
     });
 
@@ -209,23 +274,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Fermeture de la fenêtre
+  // ==========================================
+  // 9. FERMETURE DE LA FENÊTRE
+  // ==========================================
+
   if (modal) {
-    modal.querySelectorAll("[data-close], .close, .modal-close, .mx")
+    modal
+      .querySelectorAll(
+        "[data-close], .close, .modal-close, .mx"
+      )
       .forEach(button => {
         button.addEventListener("click", closeModal);
       });
 
     modal.addEventListener("click", event => {
-      if (event.target === modal) closeModal();
+      if (event.target === modal) {
+        closeModal();
+      }
     });
   }
 
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") closeModal();
+    if (event.key === "Escape") {
+      closeModal();
+    }
   });
 
-  // Animation d'apparition des cartes
+  // ==========================================
+  // 10. ANIMATION D'APPARITION DES CARTES
+  // ==========================================
+
   const revealElements = document.querySelectorAll(".reveal");
 
   if ("IntersectionObserver" in window) {
@@ -238,10 +316,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    revealElements.forEach(element => observer.observe(element));
+    revealElements.forEach(element => {
+      observer.observe(element);
+    });
   } else {
     revealElements.forEach(element => {
       element.classList.add("visible", "in");
     });
   }
+
 });
