@@ -1,483 +1,81 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Styven The Dev</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
-  <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(120deg,#4f8cff 0%,#a3c9ff 100%), url('wp6439244.jpg') center/cover no-repeat fixed;
-      margin: 0;
-      min-height: 100vh;
-    }
-    header {
-      background: rgba(36, 56, 99, 0.85);
-      padding: 0 0 0 0;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 0 0 24px 24px;
-    }
-    .logo {
-      font-size: 2em;
-      color: #fff;
-      font-weight: bold;
-      text-decoration: none;
-      padding: 18px 32px;
-      letter-spacing: 2px;
-    }
-    .navigation {
-      padding-right: 32px;
-    }
-    .navigation a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1em;
-      margin: 0 18px;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .navigation a:hover {
-      color: #ffd700;
-    }
-    section {
-      max-width: 900px;
-      margin: 48px auto;
-      padding: 36px 24px;
-      background: rgba(255,255,255,0.82);
-      border-radius: 24px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-    }
-    .main {
-      background: rgba(36,56,99,0.25);
-      color: #fff;
-      text-align: center;
-      margin-bottom: 0;
-      box-shadow: none;
-    }
-    .main img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      margin-bottom: 22px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.15);
-      object-fit: cover;
-      background: #fff;
-      border: 4px solid #4f8cff;
-    }
-    .main h2 {
-      font-size: 2.7em;
-      margin-bottom: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    .main span {
-      color: #ffd700;
-    }
-    .main-btn {
-      background: #2563eb;
-      color: #fff;
-      padding: 14px 32px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 24px 0;
-      display: inline-block;
-      transition: background 0.2s;
-      border: none;
-      font-size: 1.1em;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-    }
-    .main-btn:hover {
-      background: #ffd700;
-      color: #222;
-    }
-    .social-icon {
-      margin-top: 18px;
-    }
-    .social-icon a {
-      color: #fff;
-      margin: 0 12px;
-      font-size: 1.7em;
-      transition: color 0.2s;
-    }
-    .social-icon a:hover {
-      color: #ffd700;
-    }
-    .title {
-      text-align: center;
-      font-size: 2.2em;
-      margin-bottom: 32px;
-      color: #2563eb;
-      letter-spacing: 2px;
-      font-weight: 700;
-    }
-    .cards .content, .projects .content {
-      display: flex;
-      justify-content: center;
-      gap: 36px;
-      flex-wrap: wrap;
-    }
-    .card, .project-card {
-      background: rgba(255,255,255,0.95);
-      border-radius: 18px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
-      padding: 32px;
-      width: 320px;
-      text-align: center;
-      margin-bottom: 24px;
-      transition: transform 0.2s;
-    }
-    .card:hover, .project-card:hover {
-      transform: translateY(-6px) scale(1.04);
-    }
-    .card .icon, .project-card .icon {
-      font-size: 2.7em;
-      color: #2563eb;
-      margin-bottom: 14px;
-    }
-    .project-card a {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 10px 20px;
-      background: #2563eb;
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s;
-      font-weight: bold;
-      border: none;
-      font-size: 1em;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-    .project-card a:hover {
-      background: #ffd700;
-      color: #222;
-    }
-    .news-list {
-      max-width: 700px;
-      margin: 0 auto;
-      padding-bottom: 24px;
-    }
-    .news-item {
-      background: rgba(255,255,255,0.97);
-      padding: 28px;
-      margin-bottom: 28px;
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      border-radius: 18px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
-    }
-    .news-media {
-      width: 90px;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 12px;
-      background: #eaf1ff;
-      margin-right: 18px;
-      display: block;
-    }
-    .news-content h3 {
-      margin: 0 0 10px 0;
-      color: #2563eb;
-      font-size: 1.2em;
-      font-weight: 700;
-    }
-    .news-content p {
-      margin: 0 0 10px 0;
-      font-size: 1em;
-    }
-    .news-content .date {
-      font-size: 0.95em;
-      color: #888;
-    }
-    .add-news-form {
-      background: rgba(255,255,255,0.97);
-      padding: 20px;
-      margin-bottom: 36px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      border-radius: 18px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
-    }
-    .add-news-form input, .add-news-form textarea {
-      flex: 1 1 220px;
-      padding: 10px;
-      margin-bottom: 12px;
-      border-radius: 8px;
-      border: 1px solid #d0d7e2;
-      font-size: 1em;
-    }
-    .add-news-form button {
-      background: #2563eb;
-      color: #fff;
-      border: none;
-      padding: 12px 22px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top: 12px;
-      flex: 1 1 120px;
-      font-size: 1em;
-    }
-    .add-news-form button:hover {
-      background: #ffd700;
-      color: #222;
-    }
-    .contact-form {
-      max-width: 420px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-      padding: 34px;
-      background: rgba(255,255,255,0.97);
-      border-radius: 18px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
-    }
-    .footer {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 34px 0 12px 0;
-      margin-top: 48px;
-      border-radius: 24px 24px 0 0;
-    }
-    .footer-title {
-      font-weight: bold;
-      font-size: 1.2em;
-    }
-    #visitor-count {
-      margin-top:12px;
-      font-size:1em;
-      color:#2563eb;
-    }
-    @media (max-width: 900px) {
-      section {
-        max-width: 98vw;
-        padding: 12px 2vw;
-      }
-      .cards .content, .projects .content { flex-direction: column; align-items: center; }
-      .news-item { flex-direction: column; align-items: flex-start; }
-      .project-card, .card { width: 98vw; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Styventhedev — Créateur de projets</title>
+<meta name="description" content="Styventhedev : applications, outils et launchers Android, créés avec passion.">
+<meta name="theme-color" content="#080B12">
+<meta property="og:title" content="Styventhedev — Créateur de projets">
+<meta property="og:description" content="Mes apps, outils et projets Android, Web et Windows.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header>
-    <a class="logo" href="#">styventhedev</a>
-    <nav class="navigation">
-      <a href="#role">Services</a>
-      <a href="#projects">Projets</a>
-      <a href="#news">Actualités</a>
-      <a href="#contact-page">Contact</a>
-    </nav>
-  </header>
+<header><div class="wrap"><nav>
+<a class="logo" href="#accueil">STYVEN<span>THEDEV</span></a>
+<ul><li><a href="#projets">Projets</a></li><li><a href="#apropos">À propos</a></li><li><a href="#contact">Contact</a></li></ul>
+</nav></div></header>
 
-  <section class="main">
-    <img src="styven.png" alt="Styven" />
-    <h2>Salut, je suis Styven<br><span>Développeur</span></h2>
-    <h3>Je crée avec passion ! ⚡</h3>
-    <a href="#projects" class="main-btn">Mes créations</a>
-    <h4 style="margin-top:30px;">Mes réseaux sociaux 个</h4>
-    <div class="social-icon">
-      <a href="https://www.bandlab.com/styven_music"><i class="fa-brands fa-bandcamp"></i></a>
-      <a href="https://www.instagram.com/styventhedev"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://github.com/styventhedev"><i class="fa-brands fa-github"></i></a>
-    </div>
-  </section>
+<main>
+<section class="hero" id="accueil"><div class="wrap">
+<span class="tag">● Développeur indépendant</span>
+<h1>Je crée des <em id="typed">apps</em><span class="caret"></span></h1>
+<p>Bienvenue chez Styventhedev : des projets gratuits, légers et pensés pour tourner partout, du PC au téléphone.</p>
+<a class="btn main" href="#projets">Voir mes projets</a><a class="btn" href="#contact">Me contacter</a>
+</div></section>
 
-  <section class="cards" id="role">
-    <h2 class="title">Role</h2>
-    <div class="content">
-      <div class="card">
-        <div class="icon"><i class="fa-solid fa-music"></i></div>
-        <h3>Producteur de musique</h3>
-        <p>Je compose et produis des musiques originales sur Bandlab et d'autres plateformes.</p>
-      </div>
-      <div class="card">
-        <div class="icon"><i class="fa-solid fa-cart-shopping"></i></div>
-        <h3>Vendeur digital</h3>
-        <p>Je propose des produits digitaux à petit prix : packs, outils, ressources et plus encore.</p>
-      </div>
-    </div>
-  </section>
+<section style="padding:0 0 10px"><div class="wrap"><div class="stats">
+<div class="stat"><b>6</b><span>projets</span></div>
+<div class="stat"><b>4</b><span>plateformes : Web, Android, Windows, Discord</span></div>
+<div class="stat"><b>0 €</b><span>de budget, 100 % passion</span></div>
+</div></div></section>
 
-  <section class="projects" id="projects">
-    <h2 class="title">Projets</h2>
-    <div class="content">
-      <div class="project-card">
-        <div class="icon"><i class="fa-brands fa-github"></i></div>
-        <h3>AllInfo</h3>
-        <p>Un site pour voir les infos de ton appareil.</p>
-        <a href="https://styventhedev.github.io/Allinfo/" target="_blank">
-          Voir le projet <i class="fa-brands fa-github"></i>
-        </a>
-      </div>
-      <div class="project-card">
-        <div class="icon"><i class="fa-solid fa-cart-shopping"></i></div>
-        <h3>Boutique</h3>
-        <p>Vente de produits digitaux à petit prix.</p>
-        <a href="https://ko-fi.com/styvenshop" target="_blank">
-          Voir la boutique <i class="fa-solid fa-cart-shopping"></i>
-        </a>
-      </div>
-    </div>
-  </section>
+<section id="projets"><div class="wrap">
+<h2>Mes projets</h2><p class="sub">Outils, jeux et applications, réalisés avec peu de moyens et beaucoup de passion.</p>
+<div class="filters" id="filters">
+<button class="on" data-f="all">Tous</button><button data-f="web">Web</button><button data-f="mobile">Mobile</button><button data-f="outil">Outils</button><button data-f="discord">Discord</button>
+</div>
+<div class="grid">
+<article class="card reveal" data-c="web outil"><div class="ico">📊</div><h3>AllInfo</h3><p>Un site qui affiche toutes les informations de ton appareil, en un coup d’œil.</p><div class="meta"><span class="chip">Web</span><span class="chip">Outil</span><span class="chip ok">En ligne</span></div><a class="btn main" href="https://styventhedev.github.io/Allinfo/" target="_blank" rel="noopener">Ouvrir le site</a></article>
+<article class="card reveal" data-c="mobile outil"><div class="ico">🔧</div><h3>PlombierTool</h3><p>Une application pensée pour les plombiers, à installer directement sur Android.</p><div class="meta"><span class="chip">Android</span><span class="chip">Windows</span><span class="chip ok">Disponible</span></div><a class="btn main" href="plombiertool.apk" download>Télécharger l’APK (Android)</a><a class="btn" href="PlombierTool-Setup.exe" download style="margin-top:8px">Télécharger pour Windows</a></article>
+<article class="card reveal" data-c="web"><div class="ico">🛒</div><h3>StyvenShop</h3><p>Ma boutique de produits digitaux, disponible sur Ko-fi.</p><div class="meta"><span class="chip">Boutique</span><span class="chip">Digital</span></div><a class="btn main" href="https://ko-fi.com/styvenshop" target="_blank" rel="noopener">Visiter la boutique</a></article>
+<article class="card reveal" data-c="mobile outil"><div class="ico">🔮</div><h3>STYVEN Glass</h3><p>Un launcher Android au style Liquid Glass : gratuit, sans pub, sans compte.</p><div class="meta"><span class="chip">Kotlin</span><span class="chip">Compose</span><span class="chip dev">En développement</span></div><div class="soon">Bientôt disponible</div></article>
+<article class="card reveal" data-c="mobile outil"><div class="ico">🛡️</div><h3>Cyber Toolkit</h3><p>Un menu de cybersécurité en console, thème hacker noir et bleu, utilisable sur Android sans root.</p><div class="meta"><span class="chip">Python</span><span class="chip">Pydroid 3</span><span class="chip dev">En développement</span></div><div class="soon">Bientôt disponible</div></article>
+<article class="card reveal" data-c="outil discord"><div class="ico">🤖</div><h3>RAVYX</h3><p>Un bot Discord multifonction au style cyberpunk, créé directement depuis Android.</p><div class="meta"><span class="chip">Discord</span><span class="chip">BDFD</span><span class="chip dev">En préparation</span></div><div class="soon">Bientôt disponible</div></article>
+</div></div></section>
 
-  <section class="news" id="news">
-    <h2 class="title">Actualités</h2>
-    <form class="add-news-form" id="addNewsForm" enctype="multipart/form-data">
-      <input type="text" id="newsTitle" placeholder="Titre de l'actualité" required />
-      <textarea id="newsText" rows="2" placeholder="Description" required></textarea>
-      <input type="text" id="newsDate" placeholder="Date (ex: Août 2025)" required />
-      <input type="file" id="newsMedia" accept="image/*,video/*" />
-      <button type="submit">Ajouter l'actualité</button>
-    </form>
-    <div class="news-list" id="newsList"></div>
-  </section>
+<section id="bientot"><div class="wrap">
+<h2>Ce que je prépare</h2><p class="sub">Les prochaines étapes de mes projets.</p>
+<div class="road">
+<div class="step"><span class="dot"></span><div><h3>STYVEN Glass</h3><p>Le launcher Liquid Glass avance par étapes.</p><span class="chip">Lanceur, grille et dock</span><span class="chip">Dossiers et recherche</span><span class="chip">Control Center</span><span class="chip">Notifications</span><span class="chip">Widgets</span><span class="chip">Optimisation</span></div></div>
+<div class="step"><span class="dot"></span><div><h3>Cyber Toolkit</h3><p>Scan des appareils visibles sur ton réseau Wi-Fi, puis de nouvelles fonctions.</p><span class="chip dev">Prévu</span></div></div>
+<div class="step"><span class="dot"></span><div><h3>RAVYX</h3><p>Le bot Discord se construit module par module.</p><span class="chip">Aide et infos</span><span class="chip">Modération</span><span class="chip">Gestion de serveur</span><span class="chip">Réponses personnalisées</span></div></div>
+</div></div></section>
 
-  <section class="contact" id="contact-page">
-    <h2 class="title">Contact</h2>
-    <form class="contact-form" action="https://formspree.io/f/xqadejvy" method="POST" id="contactForm">
-      <div style="position:relative;">
-        <input type="text" name="name" placeholder="Votre nom" required style="padding-left:32px;" />
-        <span style="position:absolute;left:8px;top:50%;transform:translateY(-50%);color:#4f8cff;">
-          <i class="fa-solid fa-user"></i>
-        </span>
-      </div>
-      <div style="position:relative;">
-        <input type="email" name="email" placeholder="Votre email" required style="padding-left:32px;" />
-        <span style="position:absolute;left:8px;top:50%;transform:translateY(-50%);color:#4f8cff;">
-          <i class="fa-solid fa-envelope"></i>
-        </span>
-      </div>
-      <div style="position:relative;">
-        <textarea name="message" rows="5" placeholder="Votre message" required style="padding-left:32px;"></textarea>
-        <span style="position:absolute;left:8px;top:12px;color:#4f8cff;">
-          <i class="fa-solid fa-comment"></i>
-        </span>
-      </div>
-      <button type="submit" style="background: #2563eb; color: #fff; padding: 12px; border: none; cursor: pointer; border-radius:8px;">Envoyer</button>
-      <div id="formMessage" style="display:none;color:#2563eb;text-align:center;margin-top:10px;"></div>
-    </form>
-  </section>
- 
-  <footer class="footer">
-    <p class="footer-title">Copyright ©<span>styventhedev</span></p>
-    <p>Merci de ta visite!</p>
-    <div id="visitor-count">
-      Visiteurs : <span id="count">...</span>
-    </div>
-    <div style="margin-top:10px;">
-      <a href="https://www.instagram.com/styventhedev" target="_blank" style="color:#fff;margin:0 8px;"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://github.com/styventhedev" target="_blank" style="color:#fff;margin:0 8px;"><i class="fa-brands fa-github"></i></a>
-      <a href="https://ko-fi.com/styvenshop" target="_blank" style="color:#fff;margin:0 8px;"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-  </footer>
-  <script>
-    // Compteur de visiteurs
-    fetch('https://api.countapi.xyz/hit/styventhedev-main/visits')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('count').textContent = data.value;
-      });
+<section id="apropos"><div class="wrap">
+<h2>À propos</h2><p class="sub">Un petit studio, zéro budget, de grandes idées.</p>
+<div class="about">
+<div class="panel"><h3>Mon approche</h3><p>Je construis des projets simples, rapides et gratuits, qui fonctionnent même sur des appareils modestes. Chaque outil est pensé pour être utile dès la première seconde.</p></div>
+<div class="panel"><h3>Technologies</h3><div class="stack"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Python</span><span class="chip">Kotlin</span><span class="chip">BDFD</span><span class="chip">GitHub Pages</span></div></div>
+</div></div></section>
 
-    // Formulaire de contact
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      fetch(this.action, {
-        method: 'POST',
-        body: new FormData(this),
-        headers: { 'Accept': 'application/json' }
-      })
-      .then(response => {
-        if (response.ok) {
-          document.getElementById('formMessage').textContent = "Merci pour votre message ! Je vous répondrai bientôt.";
-          document.getElementById('formMessage').style.display = "block";
-          this.reset();
-        } else {
-          document.getElementById('formMessage').textContent = "Une erreur est survenue. Réessayez.";
-          document.getElementById('formMessage').style.display = "block";
-        }
-      });
-    });
+<section class="contact" id="contact"><div class="wrap">
+<h2>Contact</h2><p class="sub">Une idée, une question, une collaboration ?</p>
+<div class="panel" id="contact-zone">
+<div class="links">
+<a class="btn main" href="mailto:styventhedev@gmail.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>styventhedev@gmail.com</a>
+<a class="btn" href="https://www.instagram.com/styventhedev" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg>Instagram</a>
+<a class="btn" href="https://ko-fi.com/styvenshop" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 11H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>StyvenShop</a>
+</div>
+</div></div></section>
+</main>
 
-    // Actualités dynamiques avec média
-    const defaultNews = [
-      {
-        title: "Nouveau projet : AllInfo",
-        text: "J’ai lancé <a href='https://styventhedev.github.io/Allinfo/' target='_blank' style='color:#2563eb;text-decoration:underline;'>AllInfo</a>, un site pour afficher les infos de ton appareil. Teste-le et donne ton avis !",
-        media: "",
-        date: "Août 2025"
-      },
-      {
-        title: "La boutique est ouverte !",
-        text: "Retrouve mes produits digitaux sur <a href='https://ko-fi.com/styvenshop' target='_blank' style='color:#2563eb;text-decoration:underline;'>ma boutique Ko-fi</a> : packs, outils et ressources à petit prix.",
-        media: "",
-        date: "Juillet 2025"
-      }
-    ];
+<footer><div class="wrap">© <span id="year"></span> Styventhedev · <a href="#accueil">Retour en haut ↑</a></div></footer>
+<a class="top" href="#accueil" aria-label="Retour en haut">↑</a>
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true"><div class="mbox"><button class="mx" type="button" aria-label="Fermer">✕</button><div id="mbody"></div></div></div>
 
-    function renderNews(newsArray) {
-      const newsList = document.getElementById('newsList');
-      newsList.innerHTML = '';
-      newsArray.forEach(news => {
-        let mediaHtml = '';
-        if (news.media) {
-          if (news.media.startsWith('data:image')) {
-            mediaHtml = `<img class="news-media" src="${news.media}" alt="media" />`;
-          } else if (news.media.startsWith('data:video')) {
-            mediaHtml = `<video class="news-media" src="${news.media}" controls></video>`;
-          } else if (news.media.startsWith('http')) {
-            mediaHtml = `<img class="news-media" src="${news.media}" alt="media" />`;
-          }
-        }
-        newsList.innerHTML += `
-          <div class="news-item">
-            ${mediaHtml}
-            <div class="news-content">
-              <h3>${news.title}</h3>
-              <p>${news.text}</p>
-              <span class="date">${news.date}</span>
-            </div>
-          </div>
-        `;
-      });
-    }
-
-    let newsArray = [...defaultNews];
-
-    renderNews(newsArray);
-
-    document.getElementById('addNewsForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const title = document.getElementById('newsTitle').value;
-      const text = document.getElementById('newsText').value;
-      const date = document.getElementById('newsDate').value;
-      const mediaInput = document.getElementById('newsMedia');
-      let media = "";
-      if (mediaInput.files && mediaInput.files[0]) {
-        const file = mediaInput.files[0];
-        const reader = new FileReader();
-        reader.onload = function(evt) {
-          media = evt.target.result;
-          newsArray.unshift({ title, text, media, date });
-          renderNews(newsArray);
-        };
-        reader.readAsDataURL(file);
-        document.getElementById('addNewsForm').reset();
-      } else {
-        newsArray.unshift({ title, text, media, date });
-        renderNews(newsArray);
-        document.getElementById('addNewsForm').reset();
-      }
-    });
-  </script>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
