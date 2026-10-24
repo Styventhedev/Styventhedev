@@ -213,39 +213,43 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.key === "Escape") closeModal();
   });
 
+
   // Filtres de projets
   const filters = document.getElementById("filters");
+  const cards = document.querySelectorAll(".card");
 
   if (filters) {
     filters.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-filter]");
-      if (!button) return;
+      const button = event.target.closest("button");
+      if (!button || !filters.contains(button)) return;
 
-      const filter = button.dataset.filter;
+      const filter = (
+        button.dataset.filter ||
+        button.textContent.trim()
+      ).toLowerCase();
 
-      filters.querySelectorAll("[data-filter]").forEach((item) => {
+      filters.querySelectorAll("button").forEach((item) => {
         item.classList.toggle("active", item === button);
-        item.setAttribute(
-          "aria-pressed",
-          item === button ? "true" : "false"
-        );
       });
 
-      document.querySelectorAll(".card").forEach((card) => {
+      cards.forEach((card) => {
         const category = (
           card.dataset.category ||
           card.dataset.filter ||
-          ""
+          card.textContent
         ).toLowerCase();
 
         const show =
+          filter === "tous" ||
+          filter === "tout" ||
           filter === "all" ||
-          category === filter.toLowerCase();
+          category.includes(filter);
 
         card.hidden = !show;
       });
     });
   }
+
 
   // Apparition progressive des éléments
   if (
