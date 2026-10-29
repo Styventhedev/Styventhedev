@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,24 +6,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <title>Styventhedev — Créateur de projets</title>
-
-<meta name="description" content="Styventhedev : applications, outils et launchers Android, créés avec passion.">
+<meta name="description" content="Styventhedev : applications, outils et projets Android, Web, Windows et Discord.">
 <meta name="theme-color" content="#080B12">
 <meta property="og:title" content="Styventhedev — Créateur de projets">
-<meta property="og:description" content="Mes apps, outils et projets Android, Web et Windows.">
+<meta property="og:description" content="Découvre mes applications, outils et projets.">
 <meta property="og:type" content="website">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="./style.css">
-</head>
 
+</head>
 <body>
 
 <header>
   <div class="wrap">
     <nav>
       <a class="logo" href="#accueil">STYVEN<span>THEDEV</span></a>
-
       <ul>
         <li><a href="#projets">Projets</a></li>
         <li><a href="#apropos">À propos</a></li>
@@ -37,7 +36,6 @@
   <!-- ACCUEIL -->
   <section class="hero" id="accueil">
     <div class="wrap">
-
       <span class="tag">● Développeur indépendant</span>
 
       <h1>
@@ -48,12 +46,16 @@
 
       <p>
         Bienvenue chez Styventhedev : des projets gratuits,
-        légers et pensés pour tourner partout, du PC au téléphone.
+        légers et pensés pour fonctionner sur PC et téléphone.
       </p>
 
       <a class="btn main" href="#projets">Voir mes projets</a>
       <a class="btn" href="#contact">Me contacter</a>
-
+      <a class="btn ravyx-button"
+         href="https://discord.com/oauth2/authorize?client_id=1563280653620084737&amp;permissions=3970365681101847&amp;integration_type=0&amp;scope=bot"
+         target="_blank" rel="noopener noreferrer">
+        🤖 Ajouter RAVYX à Discord
+      </a>
     </div>
   </section>
 
@@ -61,22 +63,18 @@
   <section style="padding:0 0 10px">
     <div class="wrap">
       <div class="stats">
-
         <div class="stat">
           <b>6</b>
           <span>projets</span>
         </div>
-
         <div class="stat">
           <b>4</b>
           <span>plateformes : Web, Android, Windows, Discord</span>
         </div>
-
         <div class="stat">
           <b>0 €</b>
           <span>de budget, 100 % passion</span>
         </div>
-
       </div>
     </div>
   </section>
@@ -84,15 +82,12 @@
   <!-- PROJETS -->
   <section id="projets">
     <div class="wrap">
-
       <h2>Mes projets</h2>
-
       <p class="sub">
         Outils, jeux et applications, réalisés avec peu de moyens
         et beaucoup de passion.
       </p>
 
-      <!-- FILTRES -->
       <div class="filters" id="filters">
         <button class="on" data-f="all">Tous</button>
         <button data-f="web">Web</button>
@@ -106,61 +101,41 @@
         <!-- ALLINFO -->
         <article class="card reveal" data-c="web outil">
           <div class="ico">📊</div>
-
           <h3>AllInfo</h3>
-
           <p>
-            Un site qui affiche toutes les informations de ton appareil,
+            Un site qui affiche les informations de ton appareil
             en un coup d’œil.
           </p>
-
           <div class="meta">
             <span class="chip">Web</span>
             <span class="chip">Outil</span>
             <span class="chip ok">En ligne</span>
           </div>
-
-          <a
-            class="btn main"
-            href="https://styventhedev.github.io/Allinfo/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="btn main"
+             href="https://styventhedev.github.io/Allinfo/"
+             target="_blank" rel="noopener noreferrer">
             Ouvrir le site
           </a>
         </article>
 
         <!-- PLOMBIERTOOL -->
-        <article class="card reveal" data-c="mobile outil">
+        <article class="card reveal" data-c="mobile">
           <div class="ico">🔧</div>
-
           <h3>PlombierTool</h3>
-
           <p>
             Une application pensée pour les plombiers,
             à installer directement sur Android.
           </p>
-
           <div class="meta">
             <span class="chip">Android</span>
             <span class="chip">Windows</span>
             <span class="chip ok">Disponible</span>
           </div>
-
-          <a
-            class="btn main"
-            href="plombiertool.apk"
-            download
-          >
+          <a class="btn main" href="plombiertool.apk" download>
             Télécharger l’APK (Android)
           </a>
-
-          <a
-            class="btn"
-            href="PlombierTool-Setup.exe"
-            download
-            style="margin-top:8px"
-          >
+          <a class="btn" href="PlombierTool-Setup.exe"
+             download style="margin-top:8px">
             Télécharger pour Windows
           </a>
         </article>
@@ -168,24 +143,17 @@
         <!-- STYVENSHOP -->
         <article class="card reveal" data-c="web">
           <div class="ico">🛒</div>
-
           <h3>StyvenShop</h3>
-
           <p>
             Ma boutique de produits digitaux, disponible sur Ko-fi.
           </p>
-
           <div class="meta">
             <span class="chip">Boutique</span>
             <span class="chip">Digital</span>
           </div>
-
-          <a
-            class="btn main"
-            href="https://ko-fi.com/styvenshop"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="btn main"
+             href="https://ko-fi.com/styvenshop"
+             target="_blank" rel="noopener noreferrer">
             Visiter la boutique
           </a>
         </article>
@@ -193,67 +161,58 @@
         <!-- STYVEN GLASS -->
         <article class="card reveal" data-c="mobile">
           <div class="ico">🔮</div>
-
           <h3>STYVEN Glass</h3>
-
           <p>
             Un launcher Android au style Liquid Glass :
-            gratuit, sans pub et sans compte.
+            gratuit, sans publicité et sans compte.
           </p>
-
           <div class="meta">
             <span class="chip">Kotlin</span>
             <span class="chip">Compose</span>
             <span class="chip dev">En développement</span>
           </div>
-
           <div class="soon">Bientôt disponible</div>
         </article>
 
         <!-- CYBER TOOLKIT -->
-        <article class="card reveal" data-c="mobile outil">
+        <article class="card reveal" data-c="outil">
           <div class="ico">🛡️</div>
-
           <h3>Cyber Toolkit</h3>
-
           <p>
-            Un menu de cybersécurité en console, avec un thème
-            hacker noir et bleu, utilisable sur Android sans root.
+            Un outil en console consacré à la cybersécurité,
+            conçu pour fonctionner sur Android sans root.
           </p>
-
           <div class="meta">
             <span class="chip">Python</span>
             <span class="chip">Pydroid 3</span>
             <span class="chip dev">En développement</span>
           </div>
-
           <div class="soon">Bientôt disponible</div>
         </article>
 
         <!-- RAVYX -->
         <article class="card reveal" data-c="discord">
           <div class="ico">🤖</div>
-
           <h3>RAVYX</h3>
-
           <p>
-            Un bot Discord multifonction au style cyberpunk,
-            développé par Styventhedev.
+            Un bot Discord multifonction développé par
+            Styventhedev pour aider à gérer les serveurs.
           </p>
-
           <div class="meta">
             <span class="chip">Discord</span>
             <span class="chip">BDFD</span>
             <span class="chip dev">En développement</span>
           </div>
-
-          <a
-            class="btn main"
-            href="https://styventhedev.github.io/Ravyx/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="btn main"
+             href="https://styventhedev.github.io/Ravyx/"
+             target="_blank" rel="noopener noreferrer">
             Visiter le site RAVYX →
+          </a>
+          <a class="btn ravyx-button"
+             href="https://discord.com/oauth2/authorize?client_id=1563280653620084737&amp;permissions=3970365681101847&amp;integration_type=0&amp;scope=bot"
+             target="_blank" rel="noopener noreferrer"
+             style="margin-top:8px">
+            Ajouter RAVYX à Discord
           </a>
         </article>
 
@@ -264,26 +223,16 @@
   <!-- PROJETS EN DÉVELOPPEMENT -->
   <section id="bientot">
     <div class="wrap">
-
       <h2>Mes projets en développement</h2>
-
-      <p class="sub">
-        Les prochaines étapes de mes projets.
-      </p>
+      <p class="sub">Les prochaines étapes de mes projets.</p>
 
       <div class="road">
 
-        <!-- STYVEN GLASS -->
         <div class="step">
           <span class="dot"></span>
-
           <div>
             <h3>STYVEN Glass</h3>
-
-            <p>
-              Le launcher Liquid Glass avance par étapes.
-            </p>
-
+            <p>Le launcher Liquid Glass avance par étapes.</p>
             <span class="chip">Lanceur, grille et dock</span>
             <span class="chip">Dossiers et recherche</span>
             <span class="chip">Control Center</span>
@@ -293,37 +242,39 @@
           </div>
         </div>
 
-        <!-- CYBER TOOLKIT -->
         <div class="step">
           <span class="dot"></span>
-
           <div>
             <h3>Cyber Toolkit</h3>
-
             <p>
-              Scan des appareils visibles sur ton réseau Wi-Fi,
-              puis de nouvelles fonctions.
+              Des outils d’analyse du réseau local et
+              de nouvelles fonctions prévues.
             </p>
-
-            <span class="chip dev">Prévu</span>
+            <span class="chip dev">En développement</span>
           </div>
         </div>
 
-        <!-- RAVYX -->
         <div class="step">
           <span class="dot"></span>
-
           <div>
             <h3>RAVYX</h3>
-
-            <p>
-              Le bot Discord se construit module par module.
-            </p>
-
-            <span class="chip">Aide et infos</span>
+            <p>Le bot Discord se construit module par module.</p>
+            <span class="chip">Aide et informations</span>
             <span class="chip">Modération</span>
             <span class="chip">Gestion de serveur</span>
             <span class="chip">Réponses personnalisées</span>
+            <div style="margin-top:12px">
+              <a class="btn"
+                 href="https://styventhedev.github.io/Ravyx/"
+                 target="_blank" rel="noopener noreferrer">
+                Découvrir RAVYX
+              </a>
+              <a class="btn ravyx-button"
+                 href="https://discord.com/oauth2/authorize?client_id=1563280653620084737&amp;permissions=3970365681101847&amp;integration_type=0&amp;scope=bot"
+                 target="_blank" rel="noopener noreferrer">
+                Inviter le bot
+              </a>
+            </div>
           </div>
         </div>
 
@@ -334,18 +285,12 @@
   <!-- À PROPOS -->
   <section id="apropos">
     <div class="wrap">
-
       <h2>À propos</h2>
-
-      <p class="sub">
-        Un petit studio, zéro budget, de grandes idées.
-      </p>
+      <p class="sub">Un petit studio, zéro budget, de grandes idées.</p>
 
       <div class="about">
-
         <div class="panel">
           <h3>Mon approche</h3>
-
           <p>
             Je construis des projets simples, rapides et gratuits,
             qui fonctionnent même sur des appareils modestes.
@@ -355,7 +300,6 @@
 
         <div class="panel">
           <h3>Technologies</h3>
-
           <div class="stack">
             <span class="chip">HTML</span>
             <span class="chip">CSS</span>
@@ -366,7 +310,6 @@
             <span class="chip">GitHub Pages</span>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -374,21 +317,12 @@
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="wrap">
-
       <h2>Contact</h2>
-
-      <p class="sub">
-        Une idée, une question, une collaboration ?
-      </p>
+      <p class="sub">Une idée, une question, une collaboration ?</p>
 
       <div class="panel" id="contact-zone">
-
         <div class="links">
-
-          <a
-            class="btn main"
-            href="mailto:styventhedev@gmail.com"
-          >
+          <a class="btn main" href="mailto:styventhedev@gmail.com">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <rect x="3" y="5" width="18" height="14" rx="3"/>
               <path d="m4 7 8 6 8-6"/>
@@ -396,12 +330,9 @@
             styventhedev@gmail.com
           </a>
 
-          <a
-            class="btn"
-            href="https://www.instagram.com/styventhedev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="btn"
+             href="https://www.instagram.com/styventhedev"
+             target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="5"/>
               <circle cx="12" cy="12" r="4"/>
@@ -410,19 +341,15 @@
             Instagram
           </a>
 
-          <a
-            class="btn"
-            href="https://ko-fi.com/styvenshop"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="btn"
+             href="https://ko-fi.com/styvenshop"
+             target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M5 8h14l-1.2 11H6.2z"/>
               <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
             </svg>
             StyvenShop
           </a>
-
         </div>
       </div>
     </div>
@@ -438,25 +365,28 @@
   </div>
 </footer>
 
-<!-- BOUTON RETOUR EN HAUT -->
 <a class="top" href="#accueil" aria-label="Retour en haut">↑</a>
 
 <!-- FENÊTRE MODALE -->
-<div
-  class="modal"
-  id="modal"
-  hidden
-  role="dialog"
-  aria-modal="true"
->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true">
   <div class="mbox">
     <button class="mx" type="button" aria-label="Fermer">✕</button>
     <div id="mbody"></div>
   </div>
 </div>
 
-<!-- JAVASCRIPT -->
 <script src="./main.js" defer></script>
+
+<!-- Styles du bouton RAVYX -->
+<style>
+.ravyx-button {
+  border-color: #168bff;
+  box-shadow: 0 0 16px rgba(22, 139, 255, 0.18);
+}
+.ravyx-button:hover {
+  box-shadow: 0 0 24px rgba(22, 139, 255, 0.42);
+}
+</style>
 
 </body>
 </html>
